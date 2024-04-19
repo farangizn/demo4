@@ -15,6 +15,7 @@ import java.util.UUID;
 @WebServlet(name = "user", value = "/user")
 public class UserServlet extends HttpServlet {
     StudentRepo studentRepo = new StudentRepo();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Student> all = studentRepo.findAll();
