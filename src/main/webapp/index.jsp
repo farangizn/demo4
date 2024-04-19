@@ -10,6 +10,8 @@
     <title>Home</title>
     <link rel="stylesheet" href="static/bootstrap.min.css">
 </head>
+<body>
+
 <%
     StudentRepo studentRepo = new StudentRepo();
     List<Student> students = studentRepo.findAll();
@@ -19,7 +21,7 @@
         validStudents = (List<Student>) object;
     }
 %>
-<body>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
