@@ -46,7 +46,7 @@
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
             <th scope="col">Age</th>
-            <th scope="col">Roles</th>
+<%--            <th scope="col">Roles</th>--%>
             <th scope="col">Group</th>
         </tr>
         </thead>
@@ -57,11 +57,11 @@
             <td><%=user.getLastName()%>></td>
             <td><%=user.getEmail()%>></td>
             <td><%=user.getAge()%></td>
-            <td>
-                <% for (Role role : user.getRoles()) { %>
-                <%=role.getName()%>
-                <% } %>
-            </td>
+<%--            <td>--%>
+<%--                <% for (Role role : user.getRoles()) { %>--%>
+<%--                <%=role.getName()%>--%>
+<%--                <% } %>--%>
+<%--            </td>--%>
             <td><%=user.getGroup().getName()%></td>
         </tr>
         <% } %>
