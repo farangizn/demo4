@@ -17,6 +17,7 @@ import static com.example.demo4.repo.BaseRepo.entityManagerFactory;
 @WebServlet(name = "edit group", value = "/group/edit")
 public class EditGroupServlet extends HttpServlet {
     GroupRepo groupRepo = new GroupRepo();
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EntityManager entityManager = entityManagerFactory.createEntityManager();

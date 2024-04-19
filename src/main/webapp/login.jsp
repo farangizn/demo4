@@ -25,6 +25,12 @@
                             <label for="email">Email address</label>
                             <input name="email" type="email" class="form-control" id="email" placeholder="Enter email">
                         </div>
+                        <div>
+                            <labal class="form-check-label my-2 mx-2">
+                                remember me
+                                <input name="rememberMe" class="form-check my-2 mx-2" type="checkbox">
+                            </labal>
+                        </div>
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input name="password" type="password" class="form-control" id="password"

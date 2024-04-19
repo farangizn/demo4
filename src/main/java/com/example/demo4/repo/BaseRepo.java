@@ -10,6 +10,7 @@ import java.util.UUID;
 public class BaseRepo {
     public static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("demo4");
     public static final EntityManager em = entityManagerFactory.createEntityManager();
+
     public void begin() {
         em.getTransaction().begin();
     }

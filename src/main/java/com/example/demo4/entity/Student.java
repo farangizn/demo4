@@ -36,15 +36,15 @@ public class Student extends BaseEntity {
         String rememberMe = req.getParameter("rememberMe");
         HttpSession session = req.getSession();
         session.setAttribute("currentUser", this);
-//        if (Objects.equals(rememberMe, "off")) {
-        Cookie cookie = new Cookie("userId", this.getId().toString());
-        cookie.setPath("/");
-        cookie.setSecure(false);
-        cookie.setMaxAge(60 * 60);
-        resp.addCookie(cookie);
-//        } else {
-        resp.sendRedirect("/");
-//        }
+        if (Objects.equals(rememberMe, "on")) {
+            Cookie cookie = new Cookie("userId", this.getId().toString());
+            cookie.setPath("/");
+            cookie.setSecure(false);
+            cookie.setMaxAge(60 * 60);
+            resp.addCookie(cookie);
+        } else {
+            resp.sendRedirect("/");
+        }
     }
 
     public Role getRoleByName(String roleName) {
