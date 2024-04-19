@@ -58,10 +58,10 @@
             <td><%=user.getEmail()%>></td>
             <td><%=user.getAge()%></td>
             <td>
-                <% for (Role role : user.getRoles()) { %>
-                <%=role.getName()%>
-                <% } %>
-            </td>
+<%--                <% for (Role role : user.getRoles()) { %>--%>
+<%--                <%=role.getName()%>--%>
+<%--                <% } %>--%>
+<%--            </td>--%>
             <td><%=user.getGroup().getName()%></td>
         </tr>
         <% } %>
