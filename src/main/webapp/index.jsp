@@ -41,6 +41,7 @@
             </form>
             <a href="/login.jsp"><button class="btn btn-outline-primary ms-2" type="button">Login</button></a>
             <a href="/group.jsp"><button class="btn btn-outline-primary ms-2" type="button">Groups</button></a>
+            <a href="/user.jsp"><button class="btn btn-outline-primary ms-2" type="button">Groups</button></a>
         </div>
     </div>
 </nav>
