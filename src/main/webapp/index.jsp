@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>JSP - Hello World</title>
     <link rel="stylesheet" href="static/bootstrap.min.css">
 </head>
 <body>
@@ -41,8 +41,9 @@
                 <input name="text" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-            <a href="login.jsp"><button class="btn btn-outline-primary ms-2" type="button">Login</button></a>
-            <a href="group.jsp"><button class="btn btn-outline-primary ms-2" type="button">Groups</button></a>
+            <a href="/login.jsp"><button class="btn btn-outline-primary ms-2" type="button">Login</button></a>
+            <a href="/group.jsp"><button class="btn btn-outline-primary ms-2" type="button">Groups</button></a>
+            <a href="/user.jsp"><button class="btn btn-outline-primary ms-2" type="button">Groups</button></a>
         </div>
     </div>
 </nav>

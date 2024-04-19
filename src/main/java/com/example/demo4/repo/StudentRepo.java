@@ -39,4 +39,9 @@ public class StudentRepo extends BaseRepo {
         return Optional.of(singleResult);
     }
 
+    public Student findUserById(UUID userId) {
+        return em.createQuery("select t from Student t where t.id = : userId", Student.class)
+                .setParameter("userId", userId)
+                .getSingleResult();
+    }
 }
