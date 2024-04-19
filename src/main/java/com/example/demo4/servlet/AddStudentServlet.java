@@ -1,4 +1,4 @@
-package com.example.demo4.servlets;
+package com.example.demo4.servlet;
 
 public class AddStudentServlet {
 }
