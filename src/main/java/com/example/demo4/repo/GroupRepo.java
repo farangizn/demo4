@@ -1,32 +1,35 @@
 package com.example.demo4.repo;
 
+import com.example.demo4.config.DBConfig;
 import com.example.demo4.entity.Group;
-import com.example.demo4.entity.Student;
+import jakarta.persistence.EntityManager;
 
 import java.util.List;
 import java.util.UUID;
 
-public class GroupRepo extends BaseRepo {
+public class GroupRepo{
+    public static final EntityManager entityManager = DBConfig.entityManagerFactory.createEntityManager();
+
     public void save(Group group) {
-        begin();
-        em.persist(group);
-        commit();
+        entityManager.getTransaction().begin();
+        entityManager.persist(group);
+        entityManager.getTransaction().commit();
     }
 
     public void deleteById(UUID id) {
-        begin();
-        Group group = em.find(Group.class, id);
-        em.remove(group);
-        commit();
+        entityManager.getTransaction().begin();
+        Group group = entityManager.find(Group.class, id);
+        entityManager.remove(group);
+        entityManager.getTransaction().commit();
     }
 
     public List<Group> findAll() {
-        return em.createQuery("from Group ", Group.class).getResultList();
+        return entityManager.createQuery("from Group ", Group.class).getResultList();
     }
 
     public void update(Group group) {
-        begin();
+        entityManager.getTransaction().begin();
         group.setName(group.getName());
-        commit();
+        entityManager.getTransaction().commit();
     }
 }

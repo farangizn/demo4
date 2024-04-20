@@ -1,5 +1,6 @@
 package com.example.demo4.servlet;
 
+import com.example.demo4.config.DBConfig;
 import com.example.demo4.entity.Role;
 import com.example.demo4.entity.Student;
 import jakarta.persistence.EntityManager;
@@ -17,13 +18,13 @@ import jakarta.validation.ValidatorFactory;
 import java.io.IOException;
 import java.util.*;
 
-import static com.example.demo4.repo.BaseRepo.entityManagerFactory;
 
 @WebServlet(name = "add user", value = "/user/add")
 public class AddUserServlet extends HttpServlet {
+    public static final EntityManager entityManager = DBConfig.entityManagerFactory.createEntityManager();
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         String[] rolesIds = req.getParameterValues("role");
         List<Role> roles = new ArrayList<>();

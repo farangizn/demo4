@@ -13,10 +13,5 @@ import java.util.UUID;
 public class Book extends BaseEntity {
     private String name;
     private String author;
-//    @Builder
-//    public Book(UUID id, LocalDateTime createdAt, String name, String author) {
-//        super(id, createdAt);
-//        this.name = name;
-//        this.author = author;
-//    }
+
 }

@@ -3,6 +3,8 @@
 <%@ page import="com.example.demo4.repo.StudentRepo" %>
 <%@ page import="com.example.demo4.entity.Role" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.demo4.config.DBConfig" %>
+<%@ page import="jakarta.persistence.EntityManager" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -41,9 +43,15 @@
                 <input name="text" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-            <a href="/login.jsp"><button class="btn btn-outline-primary ms-2" type="button">Login</button></a>
-            <a href="/group.jsp"><button class="btn btn-outline-primary ms-2" type="button">Groups</button></a>
-            <a href="/user.jsp"><button class="btn btn-outline-primary ms-2" type="button">Groups</button></a>
+            <a href="/login.jsp">
+                <button class="btn btn-outline-primary ms-2" type="button">Login</button>
+            </a>
+            <a href="/group.jsp">
+                <button class="btn btn-outline-primary ms-2" type="button">Groups</button>
+            </a>
+            <a href="/user.jsp">
+                <button class="btn btn-outline-primary ms-2" type="button">Groups</button>
+            </a>
         </div>
     </div>
 </nav>
@@ -57,37 +65,39 @@
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
             <th scope="col">Age</th>
-<%--            <th scope="col">Roles</th>--%>
-<%--            <th scope="col">Group</th>--%>
+            <%--            <th scope="col">Roles</th>--%>
+            <%--            <th scope="col">Group</th>--%>
         </tr>
         </thead>
         <tbody>
         <% if (validStudents != null) {
             for (Student student : validStudents) { %>
-                <td><%=student.getFirstName()%>></td>
-                <td><%=student.getLastName()%>></td>
-                <td><%=student.getEmail()%>></td>
-                <td><%=student.getAge()%></td>
-                <%--            <td>--%>
-                <%--                <% for (Role role : user.getRoles()) { %>--%>
-                <%--                <%=role.getName()%>--%>
-                <%--                <% } %>--%>
-                <%--            </td>--%>
-<%--                <td><%=student.getGroup().getName()%></td>--%>
-           <% }
-         } else { %>
+        <td><%=student.getFirstName()%>></td>
+        <td><%=student.getLastName()%>></td>
+        <td><%=student.getEmail()%>></td>
+        <td><%=student.getAge()%>
+        </td>
+        <%--            <td>--%>
+        <%--                <% for (Role role : user.getRoles()) { %>--%>
+        <%--                <%=role.getName()%>--%>
+        <%--                <% } %>--%>
+        <%--            </td>--%>
+        <%--                <td><%=student.getGroup().getName()%></td>--%>
+        <% }
+        } else { %>
         <% for (Student user : students) { %>
         <tr>
             <td><%=user.getFirstName()%>></td>
             <td><%=user.getLastName()%>></td>
             <td><%=user.getEmail()%>></td>
-            <td><%=user.getAge()%></td>
+            <td><%=user.getAge()%>
+            </td>
             <%--            <td>--%>
             <%--                <% for (Role role : user.getRoles()) { %>--%>
             <%--                <%=role.getName()%>--%>
             <%--                <% } %>--%>
             <%--            </td>--%>
-<%--            <td><%=user.getGroup().getName()%></td>--%>
+            <%--            <td><%=user.getGroup().getName()%></td>--%>
         </tr>
         <% } %>
         <% } %>

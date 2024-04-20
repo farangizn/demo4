@@ -3,19 +3,17 @@ package com.example.demo4.config;
 import com.example.demo4.entity.Group;
 import com.example.demo4.entity.Role;
 import com.example.demo4.entity.Student;
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 
-import java.util.ArrayList;
-import java.util.List;
-import static com.example.demo4.config.DBConfig.entityManager;
-import static com.example.demo4.config.DBConfig.entityManagerFactory;
-
 
 @WebListener
 public class DataLoader implements ServletContextListener {
+
+    private static final EntityManager entityManager = DBConfig.entityManagerFactory.createEntityManager();
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
