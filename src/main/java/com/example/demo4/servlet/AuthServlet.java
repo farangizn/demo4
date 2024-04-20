@@ -17,7 +17,6 @@ public class AuthServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         StudentRepo studentRepo = new StudentRepo();
-
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         Optional<Student> userOptional = studentRepo.findByEmail(email);
@@ -29,8 +28,6 @@ public class AuthServlet extends HttpServlet {
             } else {
                 resp.sendRedirect("/login.jsp");
             }
-        } else {
-            resp.sendRedirect("/login.jsp");
         }
 
     }

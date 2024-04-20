@@ -23,8 +23,4 @@ public class BaseEntity {
     private LocalDateTime createdAt;
 
 
-//    public BaseEntity(UUID id, LocalDateTime createdAt) {
-//        this.id = id;
-//        this.createdAt = createdAt;
-//    }
 }

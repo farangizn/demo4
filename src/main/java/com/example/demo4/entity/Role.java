@@ -1,5 +1,6 @@
 package com.example.demo4.entity;
 
+import com.example.demo4.repo.BaseRepo;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;

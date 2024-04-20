@@ -1,6 +1,6 @@
 package com.example.demo4.entity;
 
-import com.example.demo4.config.DBConfig;
+import com.example.demo4.repo.BaseRepo;
 import jakarta.persistence.*;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -8,8 +8,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -28,7 +30,6 @@ public class Student extends BaseEntity {
     @ManyToMany
     private List<Role> roles;
 
-    private static final EntityManager entityManager = DBConfig.entityManagerFactory.createEntityManager();
 
     @SneakyThrows
     public void authenticate(HttpServletResponse resp, HttpServletRequest req) {
@@ -41,13 +42,15 @@ public class Student extends BaseEntity {
             cookie.setSecure(false);
             cookie.setMaxAge(60 * 60);
             resp.addCookie(cookie);
+            resp.sendRedirect("http://localhost:8080");
         } else {
             resp.sendRedirect("/");
         }
     }
 
     public Role getRoleByName(String roleName) {
-        TypedQuery<Role> nameRole = entityManager.createQuery("select r from Role r where r.name=:nameRole", Role.class).setParameter("nameRole", roleName);
+        EntityManager em = BaseRepo.entityManagerFactory.createEntityManager();
+        TypedQuery<Role> nameRole = em.createQuery("select r from Role r where r.name=:nameRole", Role.class).setParameter("nameRole", roleName);
         return nameRole.getSingleResult();
     }
 

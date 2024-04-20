@@ -1,11 +1,10 @@
-<%@ page import="com.example.demo4.entity.Student" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.example.demo4.repo.StudentRepo" %>
-<%@ page import="com.example.demo4.entity.Role" %><%--
+<%@ page import="com.example.demo4.entity.Group" %>
+<%@ page import="com.example.demo4.repo.GroupRepo" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Farangiz
   Date: 4/19/2024
-  Time: 3:38 PM
+  Time: 11:39 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -47,57 +46,42 @@
             margin-left: 250px; /* Adjust to match sidebar width */
             padding: 20px;
         }
-         .role-item {
-             display: block;
-             font-size: 14px; /* Adjust as needed for smaller text size */
-             margin-bottom: 5px; /* Add spacing between role items */
-         }
+        .role-item {
+            display: block;
+            font-size: 14px; /* Adjust as needed for smaller text size */
+            margin-bottom: 5px; /* Add spacing between role items */
+        }
     </style>
 </head>
 <body>
 <%
-    StudentRepo studentRepo = new StudentRepo();
-    List<Student> users = studentRepo.findAll();
+    GroupRepo groupRepo = new GroupRepo();
+    List<Group> groups = groupRepo.findAll();
 %>
-<div class="sidebar">
-    <a href="/user.jsp">User</a>
-    <a href="/group.jsp">Group</a>
-</div>
+<%--<div class="sidebar">--%>
+<%--    <a href="/admin/group.jsp">User</a>--%>
+<%--    <a href="/superadmin/user.jsp">Car</a>--%>
+<%--</div>--%>
 <div class="container-fluid">
-    <h2>User</h2>
+    <h2>Group</h2>
     <p>This is the main content area where user.jsp or car.jsp will be displayed.</p>
-    <a href="/addUser.jsp" class="btn btn-dark text-white">Add student</a>
+    <a href="/admin/addGroup.jspup.jsp" class="btn btn-dark text-white">Add group</a>
     <hr>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-            <th>Password</th>
-            <th>Age</th>
-            <th>Role(s)</th>
-            <th>Actions</th>
-<%--            <th>Group</th>--%>
+            <th>created at</th>
+            <th>name</th>
         </tr>
         </thead>
         <tbody>
-        <% for (Student user : users) { %>
+        <% for (Group group : groups) { %>
         <tr>
-            <td><%= user.getFirstName() %></td>
-            <td><%= user.getLastName() %></td>
-            <td><%= user.getEmail() %></td>
-            <td><%= user.getPassword() %></td>
-            <td><%= user.getAge() %></td>
-<%--            <td>--%>
-<%--                <% for (Role role : user.getRoles()) { %>--%>
-<%--                <span class="role-item"><%= role.getName() %></span><br>--%>
-<%--                <% } %>--%>
-<%--            </td>--%>
-<%--            <td><%=user.getGroup().getName()%></td>--%>
+            <td><%=group.getCreatedAt()%></td>
+            <td><%= group.getName() %></td>
             <td>
-                <a href="/editUser.jsp?userId=<%= user.getId() %>" class="btn btn-success">Edit</a>
-                <a href="/user/delete?userId=<%= user.getId() %>" class="btn btn-danger">Delete</a>
+                <a href="/admin/editGroup.jspup.jsp?groupId=<%= group.getId() %>" class="btn btn-success">Edit</a>
+                <a href="/group/delete?groupId=<%= group.getId() %>" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         <% } %>

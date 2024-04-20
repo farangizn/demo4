@@ -20,7 +20,7 @@
                     <h4 class="text-center">Login</h4>
                 </div>
                 <div class="card-body">
-                    <form action="/auth/login" method="post">
+                    <form action="http://localhost:8080/auth/login" method="post">
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <input name="email" type="email" class="form-control" id="email" placeholder="Enter email">
